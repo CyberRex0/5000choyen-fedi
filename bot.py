@@ -53,6 +53,7 @@ async def on_mention(note):
             new_st.append(t)
 
     note['text'] = ' '.join(new_st)
+    note['text'] = note['text'].strip()
 
     #try:
     #    content = note['text'].strip().split(' ', 1)[1].strip()

@@ -43,16 +43,17 @@ async def on_mention(note):
     command = False
 
     # 他のメンション取り除く
-    split_text = note['text'].split(' ')
-    new_st = []
+    #split_text = note['text'].split(' ')
+    #new_st = []
 
-    for t in split_text:
-        if t.startswith('@'):
-            pass
-        else:
-            new_st.append(t)
+    #for t in split_text:
+    #    if t.startswith('@'):
+    #        pass
+    #    else:
+    #        new_st.append(t)
 
-    note['text'] = ' '.join(new_st)
+    #note['text'] = ' '.join(new_st)
+    note['text'] = re.sub(r'@\w+@?[\w.-]*', '', note['text'])
     note['text'] = note['text'].strip()
 
     #try:
